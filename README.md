@@ -199,3 +199,43 @@
 
   3. 시공사 측면  
   회사의 인지도 상승과 기존 아파트와의 차별화를 통한 분양율을 극대화 하고, 인터넷을 통한 입주민의 A/S 접수 및 처리로 관리의 효율성을 높일 수 있다.
+  
+## 5주차 회의내용
+
+### 디자인 시안 작성  (이세환)
+
+![sian1](./readme/sian1.png) 
+
+첫 실행시 입주민과 방문자로 나뉨 
+
+![sian2](./readme/sian2.png)
+
+입주자는 아파트 관련 업무를 앱을 통해 처리
+ 
+![sian3](./readme/sian3.png) 
+
+방문자는 다음과 같이 방문등록을 신청할 수 있음
+
+![sian4](./readme/sian4.png) 
+
+입주자는 다음 요청을 승인하거나 거부할 수 있음
+
+### 얼굴인식에 관한 기술 (박시온)
+
+![facedetection](./readme/facedetection.png)
+
+얼굴 인식에 관하여 첫 시작은 사람의 얼굴을 검출하는 것임.
+얼굴 검출에는 OpenCV or Deep learning 의 방식이 있음
+
+이번 프로젝트에서는 OpenCV의 haar cascade classifier과 Deep learning의 MTCNN을 활용하여
+성능을 비교하고 사용하는 방법으로 진행할 예정임
+
+### 안드로이드 앱 개발 (천건호)
+
+현재 로그인 및 회원가입 개발 중
+
+![login](./readme/login.png)
+
+![reg](./readme/reg.png)
+
+
