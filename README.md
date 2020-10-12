@@ -265,7 +265,7 @@ Loading Activity : 인트로 페이지
 
 ![sh3](https://user-images.githubusercontent.com/63036034/95756121-513b9900-0ce0-11eb-9fcb-f98ad3c7d6ed.jpg)
 
-입주자, 방문자 각 버튼 클릭 시 
+입주자, 방문자 각 버튼 클릭 시 화면 전환
 
 
 
