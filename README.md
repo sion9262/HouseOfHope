@@ -240,6 +240,14 @@
 
 ## 6주차 회의내용
 
+### 안드로이드 앱 개발 (천건호)
+
+현재 로그인 및 회원가입 : 유저 회원가입 및 로그인 activity 개발
+APP API Interface : Retrofit2를 이용한 Server와 API 통신 Interface 개발
+
+
+
+
 
 
 
