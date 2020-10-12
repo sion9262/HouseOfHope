@@ -242,11 +242,17 @@
 
 ### 안드로이드 앱 개발 (천건호)
 
-현재 로그인 및 회원가입 : 유저 회원가입 및 로그인 activity 개발
+![Register](https://user-images.githubusercontent.com/62930681/95755132-fd7c8000-0cde-11eb-994a-4bac1c4247a0.png)
 
+현재 로그인 및 회원가입 : 유저 회원가입 및 로그인 activity 개발
 APP API Interface : Retrofit2를 이용한 Server와 API 통신 Interface 개발
 
-![Register](https://user-images.githubusercontent.com/62930681/95755132-fd7c8000-0cde-11eb-994a-4bac1c4247a0.png)
+![VisitorRegister](https://user-images.githubusercontent.com/62930681/95755656-a4611c00-0cdf-11eb-9b4a-350ece78ed4d.jpg)
+
+방문자 계정 사용 신청 시 입주자에게 승인요청
+
+
+
 
 
 
