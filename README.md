@@ -251,6 +251,18 @@ APP API Interface : Retrofit2를 이용한 Server와 API 통신 Interface 개발
 
 방문자 계정 사용 신청 시 입주자에게 승인요청
 
+### 안드로이드 앱 디자인 개발  (이세환)
+
+Loading Activity : 인트로 페이지
+![sh1](https://user-images.githubusercontent.com/63036034/95756098-4aad2180-0ce0-11eb-80be-8e4709591b5a.jpg)
+
+초기 화면
+![sh2](https://user-images.githubusercontent.com/63036034/95756118-4f71d580-0ce0-11eb-9f8b-e644cae6500c.jpg)
+
+입주자 메인 화면
+![sh3](https://user-images.githubusercontent.com/63036034/95756121-513b9900-0ce0-11eb-9fcb-f98ad3c7d6ed.jpg)
+
+입주자, 방문자 각 버튼 클릭 시 
 
 
 
