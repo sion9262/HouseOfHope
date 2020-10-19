@@ -17,14 +17,16 @@ HOG
 import cv2
 import os
 import numpy as np
+import dlib
 
 path = os.getcwd()
 
 # haar model 불러옴
 face_cascades = cv2.CascadeClassifier('./datas/haar/haarcascade_frontalface_default.xml')
-
+detecor = dlib.get_frontal_face_detector()
 def detect_faces(img, draw_box=True):
     # 이미지를 흑색으로 바꾼다.
+    img_copy = img.copy()
     grayscale_img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
 
     #얼굴을 검출한다.
@@ -43,7 +45,15 @@ def detect_faces(img, draw_box=True):
 
     return img, face_box, face_coords
 
+img = cv2.imread('../datas/1.jpg')
+detected_faces, _, _ = detect_faces(img)
+detection = detecor(img)
+for detect in detection:
+    cv2.rectangle(img, (detect.left(), detect.top()), (detect.right(), detect.bottom()), (0, 0, 255), 2)
+cv2.imwrite('../datas/1_dlib.jpg', img)
+cv2.imwrite('../datas/1_haar.jpg', detected_faces)
 
+"""
 files = os.listdir('./datas/sample_face')
 images = [file for file in files if 'jpg' in file]
 
@@ -52,3 +62,4 @@ for image in images:
     img = cv2.imread('./datas/sample_face/' + image)
     detected_faces, _, _ = detect_faces(img)
     cv2.imwrite('./datas/detected_face/' + image, detected_faces)
+"""
