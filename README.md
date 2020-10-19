@@ -267,6 +267,22 @@ Loading Activity : 인트로 페이지
 
 입주자, 방문자 각 버튼 클릭 시 화면 전환
 
+## 7주차 회의내용
+
+### 안드로이드 앱 개발 (천건호, 이세환)
+
+SharedPreferences를 이용한 자동로그인 기능 구현
+Design UI/UX 수정
+방문자용 VisitantActivity : 방문자는 사전에 방문신청을 통해 입주자에게 정보를 전달, 
+입주자용 ResidentActivity : 입주자는 방문신청을 한 방문자의 정보를 확인 
+
+
+
+
+
+
+
+
 
 
 
