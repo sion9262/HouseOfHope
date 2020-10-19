@@ -272,8 +272,11 @@ Loading Activity : 인트로 페이지
 ### 안드로이드 앱 개발 (천건호, 이세환)
 
 SharedPreferences를 이용한 자동로그인 기능 구현
+
 Design UI/UX 수정
-방문자용 VisitantActivity : 방문자는 사전에 방문신청을 통해 입주자에게 정보를 전달, 
+
+방문자용 VisitantActivity : 방문자는 사전에 방문신청을 통해 입주자에게 정보를 전달
+
 입주자용 ResidentActivity : 입주자는 방문신청을 한 방문자의 정보를 확인 
 
 
