@@ -49,11 +49,11 @@
 3가지 비교 후 성능은 다음과 같음
 
 하르 캐스케이스 < dlib < CNN
-
-검출 영상   
+  
 
 [![Watch the video](./readme/detection.jpg)](https://youtu.be/at4-s1VCXSw)
 
+위 이미지 클릭 시  얼굴검출 시연 영상으로 연결
 
 ### 얼굴 인식 
 
@@ -87,6 +87,7 @@ T-sne 를 통한 임베딩 후 결과 무의미한 결과가 나왔습니다. (f
 
 [![Watch the video](./readme/triplet.png)](https://youtu.be/lDQ3_9XK-mM)
 
+위 이미지 클릭 시  얼굴인식 시연 영상으로 연결
 
 
 
