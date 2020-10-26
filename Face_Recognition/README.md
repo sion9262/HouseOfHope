@@ -96,6 +96,16 @@ T-sne 를 통한 임베딩 후 결과 무의미한 결과가 나왔습니다. (f
 1.[Face Recognition 2. FaceNEt 논문 리뷰]  https://hwangtoemat.github.io/paper-review/2020-04-02-FaceNet-%EB%82%B4%EC%9A%A9/ []
 
 
+## 8주차 얼굴인식 프로그램
+
+![server](./readme/server.png)
+
+1. 서버를 통해 이미지 받아오기  
+
+![adduuser](./readme/adduser.png)
+
+2. 받아온 이미지 특징 추출
+3. 이미지 임베딩 후 array 저장 
 
    
 
