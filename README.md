@@ -331,13 +331,13 @@ YCbCr Color Space내에서 사람의 피부는 (0,133,77) ~ (255,173,127) 영역
 
 1. 얼굴 추출 이미지 데이터 RGB → YCbCr 변환
 
-![reg](./readme/YCbCr.png)
+![YCbCr](https://user-images.githubusercontent.com/62930681/97868684-76f21600-1d53-11eb-975b-1f2185536ad2.PNG)
 
 OpenCV 내에 구현되어있는 CVTColor함수를 사용
 
 2. YCbCr Colorspace내에서 피부 색상 추출을 위한 마스크 생성
 
-![reg](./readme/mask.png)
+![mask](https://user-images.githubusercontent.com/62930681/97868688-78234300-1d53-11eb-8c07-4f92eb50f2e6.PNG)
 
 Mask 생성을 위해 피부색상의 하한선이 될 lower array와 상한선이 될 upper array를 생성한다.
 
@@ -347,9 +347,10 @@ Mask가 생성된다.
 
 3. 생성된 마스크와 원본 데이터를 결합하여 피부 색상 추출
 
-![reg](./readme/skin.png)
+![skin](https://user-images.githubusercontent.com/62930681/97868691-78234300-1d53-11eb-9b0a-eb1a5ea67059.PNG)
 
 mask가 씌워지지 않은 부분의 픽셀은 없어지고, mask가 씌워진 부분의 픽셀만 남아있게 한다.
+
 
 
 
