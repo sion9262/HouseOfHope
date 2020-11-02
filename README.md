@@ -311,6 +311,48 @@ LED 등을통해 직관적으로 잔여 주차공간 파악
 ![parking](./readme/parking.png)
 
 
+## 9주차 회의내용
+
+### 안드로이드 앱 개발 (천건호, 이세환)  
+
+PersonalColorActivity : Personal Color 자가진단을 위한 페이지 구성
+
+### 얼굴인식을 통한 퍼스널 컬러 추천 시스템  
+
+#### 피부색상 추출 (천건호, 이세환)
+
+Dlib에서 추출한 얼굴인식의 경우, 얼굴 주위로 사각형을 만들어주는 인식 알고리즘이기에 사각형 내부에는 주위 배경색, 얼굴색, 눈 색, 눈썹, 모발색 등이 혼합되어 있다.
+
+Explicit image detection using YCbCr space color model as skin detection 논문 참조한 결과 
+
+YCbCr Color Space내에서 사람의 피부는 (0,133,77) ~ (255,173,127) 영역 내에 존재한다. 
+
+#####피부 색상 추출 단계
+
+1. 얼굴 추출 이미지 데이터 RGB → YCbCr 변환
+
+![reg](./readme/YCbCr.png)
+
+OpenCV 내에 구현되어있는 CVTColor함수를 사용
+
+2. YCbCr Colorspace내에서 피부 색상 추출을 위한 마스크 생성
+
+![reg](./readme/mask.png)
+
+Mask 생성을 위해 피부색상의 하한선이 될 lower array와 상한선이 될 upper array를 생성한다.
+
+이후, opencv의 inRange함수에, 원본이 될 이미지 YCbCr color space와 lower array, upper array를 입력해주면
+
+Mask가 생성된다.
+
+3. 생성된 마스크와 원본 데이터를 결합하여 피부 색상 추출
+
+![reg](./readme/skin.png)
+
+mask가 씌워지지 않은 부분의 픽셀은 없어지고, mask가 씌워진 부분의 픽셀만 남아있게 한다.
+
+
+
 
 
 
