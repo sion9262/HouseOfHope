@@ -1,19 +1,15 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-
+import classes.UserClass
+import classes.DBClass
 
 app = FastAPI()
+# db 연동
+DBClass = classes.DBClass.DBClass()
+db, cursor = DBClass.run_db()
+print("db 연동완료")
 
-class User(BaseModel):
-    user_id : str
-    user_password : str
 
-class UserRegister(User):
-    user_id : str
-    user_password : str
-    user_password2 : str
-    user_phone : str
-
+UserClass = classes.UserClass.UserClass(db, cursor)
 
 @app.get("/")
 def root():
@@ -22,15 +18,13 @@ def root():
     }
 
 @app.post("/login")
-def login(user: User):
-    print(user)
-    return {
-        "responseCode" : 200
-    }
+def login(user: UserClass.UserModel):
+
+    datas = UserClass.login(user)
+    return datas
 
 @app.post("/register")
-def register(user: UserRegister):
-    print(user)
-    return {
-        "responseCode": 200
-    }
+def register(user: UserClass.UserRegisterModel):
+    datas = UserClass.register(user)
+    return datas
+
