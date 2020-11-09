@@ -351,6 +351,22 @@ Mask가 생성된다.
 
 mask가 씌워지지 않은 부분의 픽셀은 없어지고, mask가 씌워진 부분의 픽셀만 남아있게 한다.
 
+## 10주차 회의내용
+
+### 안드로이드 앱 개발 (천건호, 이세환)
+
+#### PersonalColor 자가진단 알고리즘 방안 연구 중
+1. opencv dlib을 이용하여 사용자의 얼굴의 Landmark를 추출하고 퍼스널컬러 논문 자료에 빗대어 사용자에게 부합하는 메이크업, 패션 등 추천
+
+![face](https://user-images.githubusercontent.com/63036034/98524252-57f70500-22ba-11eb-874e-d1652eba8dbf.PNG)
+
+2. 사용자의 생얼 이미지를 카메라로 받은 후 GAN알고리즘을 통해 원하는 화장법을 자신의 얼굴에 매핑 시켜본 후 그날의 메이크업 Select
+
+![gan](https://user-images.githubusercontent.com/63036034/98524277-5f1e1300-22ba-11eb-9afc-9463881483d2.png)
+
+3. 웜톤/쿨톤 연예인 data set을 딥러닝시켜 사용자와 가장 유사한 data set의 메이크업, 패션 등 추천
+
+![3](https://user-images.githubusercontent.com/63036034/98524278-5fb6a980-22ba-11eb-94ff-64e8d7804b89.PNG)
 
 
 
