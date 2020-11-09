@@ -16,3 +16,21 @@ backend/config.json 파일 생성
       "password" : "your password"
     }
 
+
+## 디렉토리 구성 
+
+/backend  
+|  
+| main.py  
+|  
+| classes/   
+|   
+| config.json  
+|  
+| READMD.md  
+
+
+## UserClass  
+
+2020/10/28 초기 환경 구성  
+2020/11/1 login, register 기능 추가  
