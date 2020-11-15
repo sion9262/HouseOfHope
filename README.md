@@ -368,10 +368,6 @@ mask가 씌워지지 않은 부분의 픽셀은 없어지고, mask가 씌워진 
 
 ![3](https://user-images.githubusercontent.com/63036034/98524278-5fb6a980-22ba-11eb-94ff-64e8d7804b89.PNG)
 
-## 10주차 회의내용
-
-
-
 
 
 
@@ -380,6 +376,14 @@ mask가 씌워지지 않은 부분의 픽셀은 없어지고, mask가 씌워진 
 초음파센서 활용 잔여 주차공간 파악
 서브모터 활용 출입구 통제 
 구동 확인
+
+
+###아두이노 스마트 주차장 (서준혁)
+
+초음파 센서를 이용한 잔여공가 파악 및 LED 를 통해 직관적으로 알림
+
+https://user-images.githubusercontent.com/62739445/99168174-e7cd0100-2749-11eb-8481-e93be7f5c7e2.jpg
+https://user-images.githubusercontent.com/62739445/99168192-e8fe2e00-2749-11eb-926c-2efbba079070.jpg
 
 
 
