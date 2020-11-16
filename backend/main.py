@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from fastapi import FastAPI, File, UploadFile, Form
 import classes.UserClass
 import classes.DBClass
