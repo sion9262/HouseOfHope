@@ -1,22 +1,68 @@
 from pydantic import BaseModel
-
+import requests
 class UserClass:
-    def __init__(self, db, cursor):
-        self.db = db
-        self.cursor = cursor
+
 
     class UserModel(BaseModel):
-        user_id: str
+        user_email: str
         user_password: str
 
     class UserRegisterModel(UserModel):
-        user_id: str
-        user_password: str
-        user_password2: str
-        user_phone: str
-
+        user_username : str
+        user_dong : str
+        user_ho : str
+    """
+    def __init__(self):
+        self.db = db
+        self.cursor = cursor
+    """
+    def __init__(self):
+        self.server = "http://13.125.207.134:1337/"
 
     def login(self, user):
+
+        datas = {
+            "identifier": user.user_email,
+            "password": user.user_password
+        }
+        print(datas)
+        result = requests.post(self.server + "auth/local", data=datas)
+
+        if result.status_code == 200:
+            data = result.json()
+            return {
+                "responseCode" : 200,
+                "user_id" : data['user']['id'],
+                "user_name" : data['user']['username']
+            }
+        else:
+            return {
+                "responseCode" : 400
+            }
+
+    def register(self, user):
+
+        datas = {
+            "username": user.user_username,
+            "email": user.user_email,
+            "password": user.user_password,
+            "dong" : user.user_dong,
+            "ho" : user.user_ho
+        }
+        result = requests.post(self.server + "auth/local/register", data=datas)
+
+        try:
+            if result.status_code == 200:
+                return {
+                    "responseCode" : 200
+                }
+        except:
+            return {
+                "responseCode": 400
+            }
+
+
+    def login_db(self, user):
 
         sql = """
             SELECT * FROM user WHERE user_id = %s
@@ -48,7 +94,7 @@ class UserClass:
                 "message" : "서버 오류"
             }
 
-    def register(self, user):
+    def register_db(self, user):
 
         sql = """
             INSERT INTO user (user_id, user_password) VALUES (%s, %s)
