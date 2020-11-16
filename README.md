@@ -368,9 +368,22 @@ mask가 씌워지지 않은 부분의 픽셀은 없어지고, mask가 씌워진 
 
 ![3](https://user-images.githubusercontent.com/63036034/98524278-5fb6a980-22ba-11eb-94ff-64e8d7804b89.PNG)
 
+## 11주차 회의내용
 
+### 안드로이드 앱 개발 (천건호, 이세환)
 
+#### PersonalColor 진단
+퍼스널컬러 진단 초기 페이지 및 사진 업로드, 촬영 Activity 구현
 
+![KakaoTalk_20201116_210223082](https://user-images.githubusercontent.com/63036034/99250577-3f08c980-284f-11eb-8a79-d0f6c666a835.jpg)
+
+![KakaoTalk_20201116_210223082_01](https://user-images.githubusercontent.com/63036034/99250580-40d28d00-284f-11eb-9086-1c55fa4329ab.jpg)
+
+#### 주차 잔여 공간 조회
+
+초음파 센서 값을 통해 주차 잔여 공간 유무를 판단하고 차량 위치 파악 Activity
+
+<<<<<<< HEAD
 ###아두이노 스마트 주차장 (서준혁)
 
 초음파센서 활용 잔여 주차공간 파악
@@ -388,6 +401,9 @@ https://user-images.githubusercontent.com/62739445/99168192-e8fe2e00-2749-11eb-9
 
 
 
+=======
+![KakaoTalk_20201116_210223082_02](https://user-images.githubusercontent.com/63036034/99250583-4203ba00-284f-11eb-9223-a2c9afefbde5.jpg)
+>>>>>>> develop
 
 
 
