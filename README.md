@@ -385,8 +385,14 @@ mask가 씌워지지 않은 부분의 픽셀은 없어지고, mask가 씌워진 
 
 ![KakaoTalk_20201116_210223082_02](https://user-images.githubusercontent.com/63036034/99250583-4203ba00-284f-11eb-9223-a2c9afefbde5.jpg)
 
+## 12주차 회의내용
 
+### 안드로이드 앱 개발 (천건호, 이세환)
 
+#### 방문자 확인 및 조회 xml
 
+ListAdapter, VisitantActivity 수정 및 보완
+
+![image](https://user-images.githubusercontent.com/63036034/99965477-43495f80-2dd8-11eb-843a-cf83b5fa352c.png)
 
 
