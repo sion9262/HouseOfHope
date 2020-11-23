@@ -398,13 +398,14 @@ mask가 씌워지지 않은 부분의 픽셀은 없어지고, mask가 씌워진 
 https://user-images.githubusercontent.com/62739445/99168174-e7cd0100-2749-11eb-8481-e93be7f5c7e2.jpg
 https://user-images.githubusercontent.com/62739445/99168192-e8fe2e00-2749-11eb-926c-2efbba079070.jpg
 
-
-
-
-=======
 ![KakaoTalk_20201116_210223082_02](https://user-images.githubusercontent.com/63036034/99250583-4203ba00-284f-11eb-9223-a2c9afefbde5.jpg)
->>>>>>> develop
 
+## 12주차 
+### 라즈베리파이 환경 셋팅 (박시온)
+차량인식, 얼굴인식 라즈베리파이로 옮겨 셋팅 중.  
+기존 라즈베리파이가 실습도중 다운되어 초기 셋팅부터 하느라 시간이 오래걸림.
+
+셋팅 이후 Server와 통신하여 작동하는지 테스트 
 
 
 
