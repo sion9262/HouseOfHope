@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from fastapi import FastAPI, File, UploadFile, Form
+from fastapi.middleware.cors import CORSMiddleware
 import classes.UserClass
 import classes.DBClass
 import classes.GuestClass
@@ -10,6 +11,19 @@ DBClass = classes.DBClass.DBClass()
 db, cursor = DBClass.run_db()
 print("db 연동완료")
 """
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:3000",
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 #UserClass = classes.UserClass.UserClass(db, cursor)
 UserClass = classes.UserClass.UserClass()
@@ -32,10 +46,10 @@ def register(user: UserClass.UserRegisterModel):
 
 # 세대주 얼굴 등록
 @app.post("/reguserface")
-def reg_user_face(
-    file: UploadFile = File(...),
-    userID: str = Form(...)):
-    return 0
+def reg_user_face(file: UserClass.Base):
+    print(file)
+
+    return {"responseCode" : 200}
 
 # 방문 신청
 @app.post("/regguest")

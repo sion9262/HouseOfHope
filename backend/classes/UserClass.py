@@ -6,7 +6,8 @@ class UserClass:
     class UserModel(BaseModel):
         user_email: str
         user_password: str
-
+    class Base(BaseModel):
+        file: str
     class UserRegisterModel(UserModel):
         user_username : str
         user_dong : str
