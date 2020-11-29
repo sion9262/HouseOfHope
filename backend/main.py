@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import classes.UserClass
 import classes.DBClass
 import classes.GuestClass
+import uvicorn
 app = FastAPI()
 # db 연동
 """
