@@ -418,4 +418,18 @@ ListAdapter, VisitantActivity 수정 및 보완
 
 ![image](https://user-images.githubusercontent.com/63036034/99965477-43495f80-2dd8-11eb-843a-cf83b5fa352c.png)
 
+## 13주차 회의내용
+
+### 안드로이드 앱 개발 (천건호, 이세환)
+
+#### PersonalColor
+
+k-means clustering 알고리즘을 통한 인물사진 톤 구분 완료
+
+![image](https://user-images.githubusercontent.com/62930681/100622512-460dfc80-3364-11eb-8b29-136b3431deee.jpg)
+
+![personalcolor_result](https://user-images.githubusercontent.com/62930681/100622521-49a18380-3364-11eb-955b-b49281bb1fbc.PNG)
+
+
+
 
