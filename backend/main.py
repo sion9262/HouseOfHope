@@ -5,7 +5,9 @@ import classes.UserClass
 import classes.DBClass
 import classes.GuestClass
 import uvicorn
+import base64
 app = FastAPI()
+import re
 # db 연동
 """
 DBClass = classes.DBClass.DBClass()
@@ -45,11 +47,19 @@ def register(user: UserClass.UserRegisterModel):
     datas = UserClass.register(user)
     return datas
 
+import cv2
 # 세대주 얼굴 등록
 @app.post("/reguserface")
 def reg_user_face(file: UserClass.Base):
-    print(file)
+    image = file.file
 
+    data = base64.b64decode(image)
+
+    with open('./1.jpg', 'wb') as f:
+        f.write(data)
+    img = cv2.imread('./1.jpg')
+    img180 = cv2.rotate(img, cv2.ROTATE_180)
+    cv2.imwrite('./1.jpg', img180)
     return {"responseCode" : 200}
 
 # 방문 신청
