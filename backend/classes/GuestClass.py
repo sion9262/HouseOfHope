@@ -8,15 +8,11 @@ class GuestClass:
         visit_dong : str
         visit_ho : str
         visit_why : str
-        guest_num : str
+        visit_day : str
 
-    class UserModel(BaseModel):
-        user_id : str
-    class UpdateModel(BaseModel):
-        guest_id : str
-        status : int
+
     def __init__(self):
-        self.server = "http://13.125.207.134:1337/"
+        self.server = "http://3.35.19.36:1337/"
 
     def reg_guest(self, guest):
 
@@ -26,22 +22,24 @@ class GuestClass:
             "visit_dong" : guest.visit_dong,
             "visit_ho" : guest.visit_ho,
             "visit_why" : guest.visit_why,
-            "guest_num" : guest.guest_num,
-            "status" : 0
+            "visit_day" : guest.visit_day,
+            "status" : 0,
+            "count_picture" : 0
         }
-        print(datas)
         result = requests.post(self.server + "guests", data=datas)
         print(result.json())
         if result.status_code == 200:
             data = result.json()
             return {
                 "responseCode" : 200,
-                "status" : data['status']
+                "status" : data['id']
             }
         else:
             return {
                 "responseCode" : 400
             }
+
+
 
     def get_guest_info(self, user):
         user_id = user.user_id

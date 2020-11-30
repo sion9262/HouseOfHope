@@ -7,13 +7,9 @@ import classes.GuestClass
 import uvicorn
 import base64
 app = FastAPI()
-import re
-# db 연동
-"""
-DBClass = classes.DBClass.DBClass()
-db, cursor = DBClass.run_db()
-print("db 연동완료")
-"""
+
+a = [1, 2, 3]
+# cors 문제 해결
 origins = [
     "http://localhost.tiangolo.com",
     "https://localhost.tiangolo.com",
@@ -28,14 +24,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-#UserClass = classes.UserClass.UserClass(db, cursor)
 UserClass = classes.UserClass.UserClass()
 GuestClass = classes.GuestClass.GuestClass()
 @app.get("/")
 def root():
-    return {
-        "hello world"
-    }
+    a.append("1")
+    print(a)
+    return {"append"}
 
 @app.post("/login")
 def login(user: UserClass.UserModel):
@@ -46,38 +41,22 @@ def login(user: UserClass.UserModel):
 def register(user: UserClass.UserRegisterModel):
     datas = UserClass.register(user)
     return datas
-
-import cv2
-# 세대주 얼굴 등록
+@app.post("/getuserguest")
+def get_user_guest(user: UserClass.GetGuestModel):
+    datas = UserClass.get_guest_info(user)
+    return datas
 @app.post("/reguserface")
 def reg_user_face(file: UserClass.Base):
     image = file.file
+    print(a)
 
-    data = base64.b64decode(image)
 
-    with open('./1.jpg', 'wb') as f:
-        f.write(data)
-    img = cv2.imread('./1.jpg')
-    img180 = cv2.rotate(img, cv2.ROTATE_180)
-    cv2.imwrite('./1.jpg', img180)
     return {"responseCode" : 200}
 
 # 방문 신청
 @app.post("/regguest")
 def reg_guest(guest: GuestClass.GuestModel):
     datas = GuestClass.reg_guest(guest)
-    return datas
-
-# 방문자 내용 받기
-@app.post("/getguestinfo")
-def get_guest_info(user: GuestClass.UserModel):
-    datas = GuestClass.get_guest_info(user)
-    return datas
-
-# 방문자 수락 시 업데이트
-@app.post("/updateguest")
-def update_guest(update: GuestClass.UpdateModel):
-    datas = GuestClass.update_guest(update)
     return datas
 
 

@@ -25,7 +25,6 @@ if net.empty():
 while True:
 
     ret, frame = cap.read()
-
     if not ret:
         break
 
@@ -48,6 +47,8 @@ while True:
         y2 = int(detect[i, 6] * h)
 
         crop = frame[y1:y2, x1:x2]
+        """
+        서버로 넘겨야함.
         name, class_probability = face_predict.predict(crop)
 
         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0))
@@ -60,7 +61,7 @@ while True:
 
             label = f'wait!!'
             cv2.putText(frame, label, (x1, y1 - 1), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 1, cv2.LINE_AA)
-
+        """
     cv2.imshow('frame', frame)
 
     if cv2.waitKey(1) == 27:

@@ -6,19 +6,22 @@ class UserClass:
     class UserModel(BaseModel):
         user_email: str
         user_password: str
+
     class Base(BaseModel):
         file: str
+
     class UserRegisterModel(UserModel):
         user_username : str
         user_dong : str
         user_ho : str
-    """
+        user_car : str
+
+    class GetGuestModel(BaseModel):
+        user_dong : str
+        user_ho : str
+
     def __init__(self):
-        self.db = db
-        self.cursor = cursor
-    """
-    def __init__(self):
-        self.server = "http://13.125.207.134:1337/"
+        self.server = "http://3.35.19.36:1337/"
 
     def login(self, user):
 
@@ -34,7 +37,11 @@ class UserClass:
             return {
                 "responseCode" : 200,
                 "user_id" : data['user']['id'],
-                "user_name" : data['user']['username']
+                "user_name" : data['user']['username'],
+                "user_car" : data['user']['user_car'],
+                "user_dong" : data['user']['user_dong'],
+                "user_ho" : data['user']['user_ho'],
+                "status" : data['user']['status']
             }
         else:
             return {
@@ -47,8 +54,11 @@ class UserClass:
             "username": user.user_username,
             "email": user.user_email,
             "password": user.user_password,
-            "dong" : user.user_dong,
-            "ho" : user.user_ho
+            "user_dong" : user.user_dong,
+            "user_ho" : user.user_ho,
+            "user_car" : user.car,
+            "count_picture" : 0,
+            "status" : 0
         }
         result = requests.post(self.server + "auth/local/register", data=datas)
 
@@ -56,61 +66,28 @@ class UserClass:
             if result.status_code == 200:
                 return {
                     "responseCode" : 200
+
                 }
         except:
             return {
                 "responseCode": 400
             }
 
+    def get_guest_info(self, user):
 
-    def login_db(self, user):
+        user_dong = user.user_dong
+        user_ho = user.user_ho
 
-        sql = """
-            SELECT * FROM user WHERE user_id = %s
-        """
-        try:
-            rows = self.cursor.execute(sql, user.user_id)
-            result = self.cursor.fetchall()
-            # 등록되지 않은 아이디
-            if rows == 0:
-                return {
-                    "response_code" : 404,
-                    "message" : "아이디를 확인하세요"
-                }
-            # 비밀번호 확인
+        result = requests.get(self.server + "guests?visit_dong="+ str(user_dong) +"&visit_ho=" + str(user_ho))
 
-            if user.user_password == result[0]['user_password']:
-                return {
-                    "response_code" : 200,
-                    "message" : "로그인 성공"
-                }
-            else:
-                return {
-                    "response_code" : 404,
-                    "message" : "비밀번호를 확인하세요"
-                }
-        except:
+        if result.status_code == 200:
             return {
-                "response_code" : 405,
-                "message" : "서버 오류"
+                "responseCode": 200,
+                "data":result.json()
+            }
+        else:
+            return {
+            "responseCode": 400
             }
 
-    def register_db(self, user):
-
-        sql = """
-            INSERT INTO user (user_id, user_password) VALUES (%s, %s)
-        """
-
-        try:
-            self.cursor.execute(sql, (user.user_id, user.user_password))
-            self.db.commit()
-            return {
-                "response_code": 200,
-                "message": "회원가입 성공"
-            }
-        except:
-            return {
-                "response_code": 404,
-                "message": "이미 존재하는 아이디입니다."
-            }
 
