@@ -414,6 +414,7 @@ k-means clustering 알고리즘을 통한 인물사진 톤 구분 완료
 #### PersonalColor
 
 퍼스널컬러 진단 초기 페이지 및 사진 업로드, 촬영 Activity 수정
+
 퍼스널컬러 진단 결과 페이지 작업중
 
 
