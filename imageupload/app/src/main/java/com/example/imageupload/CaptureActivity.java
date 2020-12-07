@@ -208,7 +208,7 @@ public class CaptureActivity extends AppCompatActivity {
                         buffer.get(bytes);
                         String text = android.util.Base64.encodeToString(bytes, 0);
                         Log.e("buffer", text);
-                        UploadClass data = new UploadClass(text);
+                        UploadClass data = new UploadClass(text, "1");
                         uploads(data);
 
 

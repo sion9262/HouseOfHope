@@ -2,13 +2,12 @@
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 import classes.UserClass
-import classes.DBClass
 import classes.GuestClass
+import classes.FaceDectionClass
 import uvicorn
 import base64
 app = FastAPI()
 
-a = [1, 2, 3]
 # cors 문제 해결
 origins = [
     "http://localhost.tiangolo.com",
@@ -26,12 +25,7 @@ app.add_middleware(
 
 UserClass = classes.UserClass.UserClass()
 GuestClass = classes.GuestClass.GuestClass()
-@app.get("/")
-def root():
-    a.append("1")
-    print(a)
-    return {"append"}
-
+FaceClass = classes.FaceDectionClass.FaceDetectionClass()
 @app.post("/login")
 def login(user: UserClass.UserModel):
     datas = UserClass.login(user)
@@ -45,13 +39,11 @@ def register(user: UserClass.UserRegisterModel):
 def get_user_guest(user: UserClass.GetGuestModel):
     datas = UserClass.get_guest_info(user)
     return datas
+
 @app.post("/reguserface")
-def reg_user_face(file: UserClass.Base):
-    image = file.file
-    print(a)
-
-
-    return {"responseCode" : 200}
+def reg_user_face(user: FaceClass.UserFace):
+    datas = FaceClass.save_user_face(user)
+    return datas
 
 # 방문 신청
 @app.post("/regguest")

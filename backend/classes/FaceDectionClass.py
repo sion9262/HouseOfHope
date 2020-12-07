@@ -3,14 +3,32 @@ import requests
 import os
 import traceback
 import base64
+import numpy as np
+import cv2
+
 class FaceDetectionClass:
 
     def __init__(self):
-        self.server = "http://13.125.207.134:1337/"
+        self.server = "http://3.35.19.36:1337/"
         self.path = os.getcwd()
+        self.model = self.path + '/model/res10_300x300_ssd_iter_140000_fp16.caffemodel'
+        self.config = self.path + '/model/deploy.prototxt'
+        self.net = cv2.dnn.readNet(self.model, self.config)
+        self.init_folder()
+
+    def init_folder(self):
+        try:
+            # init folder
+            if os.path.isdir(self.path + "/user"):
+                pass
+            else:
+                os.mkdir(self.path + "/user")
+        except:
+            pass
+
     # 추후 List 로 image 받아서 처리.
     class UserFace(BaseModel):
-        image : str
+        file : str
         user_id : str
 
     def make_user_foloder(self, user_path):
@@ -37,8 +55,9 @@ class FaceDetectionClass:
 
     def save_user_face(self, data):
 
-        image = data.image
+        image = data.file
         user_id = data.user_id
+
         user_path = os.path.join(self.path, 'user', str(user_id))
 
         # 폴더가 없다면 생성
@@ -47,19 +66,70 @@ class FaceDetectionClass:
         if not result:
             return {"responseCode" : 400}
 
+        face_path = os.path.join(user_path, 'face')
+
+
+
+
         # user face 갯수 체크
-        result = requests.get(self.server + 'user')
+        result = requests.get(self.server + 'users/?id=' + str(user_id))
+
+        if result.status_code == 200 :
+            data = result.json()
+            count_picture = data[0]['count_picture']
+        else:
+            return {"responseCode": 400}
+
+
         # base64 to image
         try:
             data = base64.b64decode(image)
+            np_data = np.fromstring(data, np.uint8)
+            img = cv2.imdecode(np_data, cv2.IMREAD_UNCHANGED)
+            img = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
-            save_path = os.path.join(user_path, 'face', '', '.jpg')
-            with open(save_path, 'wb') as f:
-                f.write(data)
+            result, detect_img = self.detection(img)
+            if not result:
+                return {"responseCode": 400}
+
+            cv2.imwrite(face_path + '/'+str(count_picture) + ".jpg", detect_img)
+            result = requests.put(self.server + 'users/'+str(user_id), data={
+                "count_picture" : count_picture + 1
+            })
+            print(result.json())
+
+            return {"responseCode": 200}
 
         except:
             print(traceback.format_exc())
             return {"responseCode": 400}
 
-    def
+    def detection(self, img):
+        blob = cv2.dnn.blobFromImage(img, 1, (300, 300), (104, 177, 123))
+        self.net.setInput(blob)
+        out = self.net.forward()
 
+        detect = out[0, 0, :, :]
+        (h, w) = img.shape[:2]
+        cnt = 0
+
+        for i in range(detect.shape[0]):
+            confidence = detect[i, 2]
+            print(confidence)
+            if confidence < 0.5:
+                break
+
+            # detect값는 정규화가 되어있어 실제 들어온 영상의 w, h를 곱해야함.
+            x1 = int(detect[i, 3] * w)
+            y1 = int(detect[i, 4] * h)
+            x2 = int(detect[i, 5] * w)
+            y2 = int(detect[i, 6] * h)
+
+            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0))
+            crop = img[y1:y2, x1:x2]
+            cnt += 1
+
+        if cnt == 0:
+            return False, ""
+        else:
+            return True, crop

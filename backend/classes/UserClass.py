@@ -8,6 +8,7 @@ class UserClass:
         user_password: str
 
     class Base(BaseModel):
+        user_id : str
         file: str
 
     class UserRegisterModel(UserModel):
