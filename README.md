@@ -433,3 +433,8 @@ k-means clustering 알고리즘을 통한 인물사진 톤 구분 완료
 
 
 
+블루투스 통신을 이용한 잔여자리정보 전송 구현
+
+![블루투스](https://user-images.githubusercontent.com/62739445/101267975-d18eef80-37a1-11eb-8cd3-a6cb67771927.jpg)
+
+
