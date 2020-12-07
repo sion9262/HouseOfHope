@@ -57,7 +57,7 @@ class UserClass:
             "password": user.user_password,
             "user_dong" : user.user_dong,
             "user_ho" : user.user_ho,
-            "user_car" : user.car,
+            "user_car" : user.user_car,
             "count_picture" : 0,
             "status" : 0
         }
