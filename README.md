@@ -407,6 +407,16 @@ k-means clustering 알고리즘을 통한 인물사진 톤 구분 완료
 
 ![personalcolor_result](https://user-images.githubusercontent.com/62930681/100622521-49a18380-3364-11eb-955b-b49281bb1fbc.PNG)
 
+## 14주차 회의내용
+
+### 안드로이드 앱 개발 (천건호, 이세환)
+
+#### PersonalColor
+
+퍼스널컬러 진단 초기 페이지 및 사진 업로드, 촬영 Activity 수정
+퍼스널컬러 진단 결과 페이지 작업중
+
+
 
 
 
