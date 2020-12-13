@@ -24,6 +24,7 @@ class FaceTrainUser:
     def run(self):
         datas = self.get_trian_data()
         path = os.getcwd() + "/user/"
+        print(datas)
         for data in datas[:1]:
             user_path = path + str(data['id']) + "/face/"
             face_list = os.listdir(user_path)

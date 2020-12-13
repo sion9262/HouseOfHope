@@ -6,6 +6,8 @@ import classes.GuestClass
 import classes.FaceDectionClass
 import uvicorn
 import base64
+import requests
+server = "http://3.35.19.36:1337/"
 app = FastAPI()
 
 # cors 문제 해결
@@ -55,6 +57,18 @@ def reg_guest(guest: GuestClass.GuestModel):
 def update_guest(data: UserClass.UpdateGuest):
     data = UserClass.update_guest_visit(data)
     return data
-
+@app.get("/parking")
+def parking():
+    result = requests.get(server + "parkings")
+    if result.status_code == 200:
+        return {
+            "responseCode" : 200,
+            "datas" : result.json()
+        }
+    else:
+        return {
+            "responseCode" : 400,
+            "datas" : ""
+        }
 if __name__=="__main__":
     uvicorn.run("main:app", host="0.0.0.0", port="3000", log_level='info', access_log=False)
