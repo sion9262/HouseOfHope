@@ -21,6 +21,10 @@ class UserClass:
         user_dong : str
         user_ho : str
 
+    class UpdateGuest(BaseModel):
+        guest_id : str
+        status : int
+
     def __init__(self):
         self.server = "http://3.35.19.36:1337/"
 
@@ -91,4 +95,17 @@ class UserClass:
             "responseCode": 400
             }
 
+    def update_guest_visit(self, data):
 
+        guest_id = data.guest_id
+        status = data.status
+
+        result = requests.put(self.server + "guests/" + str(guest_id), data={status : status})
+        if result.status_code == 200:
+            return {
+                "responseCode" : 200
+            }
+        else:
+            return {
+                "responseCode" : 400
+            }

@@ -51,6 +51,10 @@ def reg_guest(guest: GuestClass.GuestModel):
     datas = GuestClass.reg_guest(guest)
     return datas
 
+@app.post("/updateguest")
+def update_guest(data: UserClass.UpdateGuest):
+    data = UserClass.update_guest_visit(data)
+    return data
 
 if __name__=="__main__":
     uvicorn.run("main:app", host="0.0.0.0", port="3000", log_level='info', access_log=False)

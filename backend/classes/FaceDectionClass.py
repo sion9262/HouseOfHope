@@ -96,7 +96,6 @@ class FaceDetectionClass:
             result = requests.put(self.server + 'users/'+str(user_id), data={
                 "count_picture" : count_picture + 1
             })
-            print(result.json())
 
             return {"responseCode": 200}
 
