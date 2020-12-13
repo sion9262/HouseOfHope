@@ -23,12 +23,18 @@ class FaceDetectionClass:
                 pass
             else:
                 os.mkdir(self.path + "/user")
+            # init guest
+            if os.path.isdir(self.path + "/guest"):
+                pass
+            else:
+                os.mkdir(self.path + "/guest")
         except:
             pass
 
     # 추후 List 로 image 받아서 처리.
     class UserFace(BaseModel):
         file : str
+        is_user : int
         user_id : str
 
     def make_user_foloder(self, user_path):
@@ -56,10 +62,16 @@ class FaceDetectionClass:
     def save_user_face(self, data):
 
         image = data.file
+        is_user = data.is_user
         user_id = data.user_id
 
-        user_path = os.path.join(self.path, 'user', str(user_id))
-
+        # 유저일떄
+        if is_user == 1 :
+            user_path = os.path.join(self.path, 'user', str(user_id))
+        elif is_user == 2 :
+            user_path = os.path.join(self.path, 'guest', str(user_id))
+        else:
+            return {"responseCode" : 400}
         # 폴더가 없다면 생성
         result = self.make_user_foloder(user_path=user_path)
 
@@ -68,11 +80,11 @@ class FaceDetectionClass:
 
         face_path = os.path.join(user_path, 'face')
 
-
-
-
         # user face 갯수 체크
-        result = requests.get(self.server + 'users/?id=' + str(user_id))
+        if is_user == 1:
+            result = requests.get(self.server + 'users/?id=' + str(user_id))
+        elif is_user == 2:
+            result = requests.get(self.server + 'guests/?id=' + str(user_id))
 
         if result.status_code == 200 :
             data = result.json()
@@ -93,9 +105,14 @@ class FaceDetectionClass:
                 return {"responseCode": 400}
 
             cv2.imwrite(face_path + '/'+str(count_picture) + ".jpg", detect_img)
-            result = requests.put(self.server + 'users/'+str(user_id), data={
-                "count_picture" : count_picture + 1
-            })
+            if is_user == 1:
+                result = requests.put(self.server + 'users/'+str(user_id), data={
+                    "count_picture" : count_picture + 1
+                })
+            elif is_user == 2:
+                result = requests.put(self.server + 'guests/' + str(user_id), data={
+                    "count_picture": count_picture + 1
+                })
 
             return {"responseCode": 200}
 

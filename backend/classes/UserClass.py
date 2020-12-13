@@ -100,7 +100,7 @@ class UserClass:
         guest_id = data.guest_id
         status = data.status
 
-        result = requests.put(self.server + "guests/" + str(guest_id), data={status : status})
+        result = requests.put(self.server + "guests/" + str(guest_id), data={"status" : status})
         if result.status_code == 200:
             return {
                 "responseCode" : 200
