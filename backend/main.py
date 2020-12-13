@@ -76,7 +76,7 @@ class updateParking(BaseModel):
     position : int
 @app.post("/updatecar")
 def updatecar(data:updateParking):
-    result = requests.put(base_server + "parkings/" + str(data.position), data={"user_id" : data.user_car})
+    result = requests.put(base_server + "parkings/" + str(data.position), data={"user_id" : data.user_car, "status" : 1})
     if result.status_code == 200:
         return {
             "responseCode" : 200
