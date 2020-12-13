@@ -70,10 +70,13 @@ def parking():
             "responseCode" : 400,
             "datas" : []
         }
-
+from pydantic import BaseModel
+class updateParking(BaseModel):
+    user_car : str
+    position : int
 @app.post("updatecar")
-def updatecar(position:int, user_car:str):
-    result = requests.put(base_server + "parkings/" + str(position), data={"user_id" : user_car})
+def updatecar(data:updateParking):
+    result = requests.put(base_server + "parkings/" + str(data.position), data={"user_id" : data.user_car})
     if result.status_code == 200:
         return {
             "responseCode" : 200
