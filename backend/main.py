@@ -70,5 +70,17 @@ def parking():
             "responseCode" : 400,
             "datas" : []
         }
+
+@app.post("updatecar")
+def updatecar(position:int, user_car:str):
+    result = requests.put(base_server + "parkings/" + str(position), data={"user_id" : user_car})
+    if result.status_code == 200:
+        return {
+            "responseCode" : 200
+        }
+    else:
+        return {
+            "responseCode" : 400
+        }
 if __name__=="__main__":
     uvicorn.run("main:app", host="0.0.0.0", port="3000", log_level='info', access_log=False)
