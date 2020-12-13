@@ -74,7 +74,7 @@ from pydantic import BaseModel
 class updateParking(BaseModel):
     user_car : str
     position : int
-@app.post("updatecar")
+@app.post("/updatecar")
 def updatecar(data:updateParking):
     result = requests.put(base_server + "parkings/" + str(data.position), data={"user_id" : data.user_car})
     if result.status_code == 200:
