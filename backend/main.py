@@ -85,5 +85,10 @@ def updatecar(data:updateParking):
         return {
             "responseCode" : 400
         }
+@app.post("/predictface")
+def predictface(data:FaceClass.Face):
+    result = FaceClass.predict_face(data)
+    return result
+
 if __name__=="__main__":
     uvicorn.run("main:app", host="0.0.0.0", port="3000", log_level='info', access_log=False)

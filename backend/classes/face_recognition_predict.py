@@ -18,9 +18,9 @@ class FaceRecognitionPredict:
     def __init__(self):
 
         self.model_path = os.path.join(os.getcwd(), 'model')
-        self.data = load('model/5-celebrity-faces-embeddings.npz')
+        self.data = load('model/usermodel.npz')
         self.trainX, self.trainy, self.testX, self.testy = self.data['arr_0'], self.data['arr_1'], self.data['arr_2'], self.data['arr_3']
-        self.facenet_model = load_model('datas/facenet_keras.h5')
+        self.facenet_model = load_model('model/facenet_keras.h5')
 
     def extract_face(self, image, required_size=(160, 160)):
 

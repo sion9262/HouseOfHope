@@ -5,6 +5,7 @@ import traceback
 import base64
 import numpy as np
 import cv2
+import classes.face_recognition_predict as face_recognition_predict
 
 class FaceDetectionClass:
 
@@ -15,6 +16,7 @@ class FaceDetectionClass:
         self.config = self.path + '/model/deploy.prototxt'
         self.net = cv2.dnn.readNet(self.model, self.config)
         self.init_folder()
+        self.FaceRecognition = face_recognition_predict.FaceRecognitionPredict()
 
     def init_folder(self):
         try:
@@ -36,6 +38,9 @@ class FaceDetectionClass:
         file : str
         is_user : int
         user_id : str
+
+    class Face(BaseModel):
+        file : str
 
     def make_user_foloder(self, user_path):
 
@@ -119,6 +124,30 @@ class FaceDetectionClass:
         except:
             print(traceback.format_exc())
             return {"responseCode": 400}
+    def predict_face(self, data):
+        image = data.file
+        # base64 to image
+        try:
+            data = base64.b64decode(image)
+            np_data = np.fromstring(data, np.uint8)
+            img = cv2.imdecode(np_data, cv2.IMREAD_UNCHANGED)
+
+            result, detect_img = self.detection(img)
+
+            if result:
+                name, class_probability = self.FaceRecognition.predict(detect_img)
+                print(name, class_probability)
+                return {
+                    "name" : name,
+                    "class_probability" : class_probability
+                }
+        except:
+            pass
+
+        return {
+            "name" : "",
+            "class_probability" : 0
+        }
 
     def detection(self, img):
         blob = cv2.dnn.blobFromImage(img, 1, (300, 300), (104, 177, 123))
@@ -131,7 +160,7 @@ class FaceDetectionClass:
 
         for i in range(detect.shape[0]):
             confidence = detect[i, 2]
-            print(confidence)
+            #print(confidence)
             if confidence < 0.5:
                 break
 
@@ -149,3 +178,4 @@ class FaceDetectionClass:
             return False, ""
         else:
             return True, crop
+
