@@ -1,7 +1,33 @@
 import socket
 from _thread import *
+import base64
+from numpy import load
+from numpy import expand_dims
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import Normalizer
+from sklearn.svm import SVC
+from matplotlib import pyplot
+from os import listdir
+from os.path import isdir
+from PIL import Image
+from matplotlib import pyplot
+from numpy import savez_compressed
+from numpy import asarray
+from keras.models import load_model
+import cv2
+import numpy as np
+model = load('./model/usermodel.npz')
+trainX, trainY = model['arr_0'], model['arr_1']
+facenet_model = load_model('./model/facenet_keras.h5')
+model_dnn = './model/res10_300x300_ssd_iter_140000_fp16.caffemodel'
+config = './model/deploy.prototxt'
+net = cv2.dnn.readNet(model_dnn, config)
 
-
+def extract_face(image, required_size=(160, 160)):
+    image = Image.fromarray(image)
+    image = image.resize(required_size)
+    face_array = asarray(image)
+    return face_array
 # 쓰레드에서 실행되는 코드입니다.
 a = [1, 2, 3]
 # 접속한 클라이언트마다 새로운 쓰레드가 생성되어 통신을 하게 됩니다.
@@ -18,13 +44,11 @@ def threaded(client_socket, addr):
 
             if not data:
                 print('Disconnected by ' + addr[0], ':', addr[1])
-                break
-            #print(data)
-            data = data.decode()
-            a.append(data)
-            print(a)
 
-            client_socket.send("성공".encode())
+            np_data = np.fromstring(data, np.uint8)
+            img = cv2.imdecode(np_data, cv2.IMREAD_UNCHANGED)
+            cv2.imwrite("./test.jpg", img)
+            #client_socket.send("성공".encode())
 
         except ConnectionResetError as e:
 

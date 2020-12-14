@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/register_layout"
+    android:background="#edeef2"
+    android:fillViewport="true"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:src="@drawable/logo2"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email2"
+            style="@style/formStyle"
+            android:layout_marginTop="40dp"
+            android:hint="ID"
+            android:textColorHint="#808080"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#808080"
+            app:errorEnabled="true"
+            app:errorTextColor="#CD0000"
+            app:hintTextColor="#808080"
+            app:startIconDrawable="@drawable/user_id"
+            app:startIconTint="#808080">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#86888A" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password2"
+            style="@style/formStyle"
+            android:layout_marginTop="10dp"
+            android:hint="PASSWORD"
+            android:textColorHint="#808080"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#808080"
+            app:endIconMode="password_toggle"
+            app:endIconTint="#808080"
+            app:errorEnabled="true"
+            app:errorTextColor="#CD0000"
+            app:helperText="패스워드는 6자리 이상입니다."
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#808080"
+            app:hintTextColor="#808080"
+            app:startIconDrawable="@drawable/password_icon"
+            app:startIconTint="#808080">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#86888A" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            style="@style/formStyle"
+            android:layout_marginTop="10dp"
+            android:hint="PASSWORD"
+            android:textColorHint="#808080"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#808080"
+            app:endIconMode="password_toggle"
+            app:endIconTint="#808080"
+            app:errorEnabled="true"
+            app:errorTextColor="#CD0000"
+            app:helperText="패스워드를 다시 한번 입력하세요"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#808080"
+            app:hintTextColor="#808080"
+            app:startIconDrawable="@drawable/password_icon"
+            app:startIconTint="#808080">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#86888A" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:hint="Name"
+            android:textColorHint="#808080"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#808080"
+            app:errorEnabled="true"
+            app:errorTextColor="#808080"
+            app:helperText="성함을 입력해주세요."
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#808080"
+            app:hintTextColor="#808080"
+            app:startIconTint="#808080">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#86888A" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dong"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:hint="Address"
+            android:textColorHint="#808080"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#808080"
+            app:errorEnabled="true"
+            app:errorTextColor="#808080"
+            app:helperText="**동"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#808080"
+            app:hintTextColor="#808080"
+            app:startIconTint="#808080">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#86888A" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ho"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:hint="Address"
+            android:textColorHint="#808080"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#808080"
+            app:errorEnabled="true"
+            app:errorTextColor="#808080"
+            app:helperText="**호"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#808080"
+            app:hintTextColor="#808080"
+            app:startIconTint="#808080">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#86888A" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/car"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:hint="carNumber"
+            android:textColorHint="#808080"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#808080"
+            app:errorEnabled="true"
+            app:errorTextColor="#808080"
+            app:helperText="**가 1234"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#808080"
+            app:hintTextColor="#808080"
+            app:startIconTint="#808080">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#86888A" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="회원가입"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:backgroundTint="#808080"
+            android:onClick="register_button"/>
+    </LinearLayout>
+
+</ScrollView>

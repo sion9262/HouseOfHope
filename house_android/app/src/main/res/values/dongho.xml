@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="dong">
+    <item>101동</item>
+    <item>102동</item>
+    <item>103동</item>
+    <item>104동</item>
+    <item>105동</item>
+</string-array>
+
+<string-array name="ho">
+    <item>101호</item>
+    <item>102호</item>
+    <item>103호</item>
+    <item>104호</item>
+    <item>105호</item>
+</string-array>
+
+<string-array name="people_number">
+    <item>1명</item>
+    <item>2명</item>
+    <item>3명</item>
+    <item>4명</item>
+    <item>5명</item>
+    <item>6명</item>
+    <item>7명</item>
+    <item>8명</item>
+    <item>9명</item>
+    <item>10명</item>
+</string-array>
+</resources>

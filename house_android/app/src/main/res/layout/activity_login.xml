@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/login_layout"
+    android:background="#edeef2"
+    >
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="130dp"
+        android:src="@drawable/logo2"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email"
+        style="@style/formStyle"
+        android:layout_marginTop="40dp"
+        android:hint="EMAIL"
+        android:textColorHint="#808080"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#808080"
+        app:errorEnabled="true"
+        app:errorTextColor="#CD0000"
+        app:hintTextColor="#808080"
+        app:startIconDrawable="@drawable/email_icon"
+        app:startIconTint="#808080"
+        tools:ignore="MissingClass">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#86888A"
+            android:id="@+id/email10"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password"
+        style="@style/formStyle"
+        android:layout_marginTop="10dp"
+        android:hint="PASSWORD"
+        android:textColorHint="#808080"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#808080"
+        app:endIconMode="password_toggle"
+        app:endIconTint="#808080"
+        app:errorEnabled="true"
+        app:errorTextColor="#CD0000"
+        app:hintTextColor="#808080"
+        app:startIconDrawable="@drawable/password_icon"
+
+        app:startIconTint="#808080">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#86888A"
+            android:id="@+id/password10"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="로그인"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:backgroundTint="#808080"
+        android:onClick="login_button"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="아직 회원이 아니신가요?"
+            android:textColor="#86888A"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/registerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:text="회원가입"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
