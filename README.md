@@ -410,3 +410,49 @@ k-means clustering 알고리즘을 통한 인물사진 톤 구분 완료
 ![블루투스](https://user-images.githubusercontent.com/62739445/101267975-d18eef80-37a1-11eb-8cd3-a6cb67771927.jpg)
 
 
+### 마지막 마무리
+
+사용 : 라즈베리파이3, 라즈베리파이4  
+라즈베리파이3 - 주차장 (블루투스 통신 및 pi camera를 통한 차량 번호 인식)  
+라즈베리파이4 - 얼굴인식
+
+
+![frame](./readme/frame.png)
+
+![line1](./readme/line1.jpg)
+
+![line2](./readme/line2.jpg)
+
+![line3](./readme/line3.jpg)
+
+
+![line4](./readme/line4.jpg)
+
+### 라즈베리파이3 실행법
+
+1. 터미널 2개를 연다.  
+2. source $HOUSE 
+3. cd Desktop/
+4. python bluetooth_arduino.py (아두이노 라즈베리파이 연동 (2개 전부 전원이 들어가있어야함))
+5. python opencv_num.py (차량 인식 - 거리에 따른 조절 필요 속도가 느림.)
+
+
+번외 (라즈베리파이4로 얼굴인식이 불가할 시 )
+
+1. source $HOUSE
+2. cd Desktop/HouseOfHope/Face_Recognition/
+3. python face_recognition_live.py
+
+### 라즈베리파이4 실행법
+
+
+1. source $HOUSE
+2. cd Desktop/HouseOfHope/Face_Recognition/
+3. python face_recognition_live.py
+
+
+
+### 부족한 부분
+
+1. 퍼스널 컬러 처리 부분 
+2. 로컬에서 얼굴 학습은 잘 되지만 EC2 서버에서 사양이 좋지 않아 자주 죽는 상황이 발생 추후 GPU Server 설치.
